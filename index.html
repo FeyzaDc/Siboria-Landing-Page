@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anasayfa</title>
     <link rel="stylesheet" href="./styles/style.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -54,6 +54,14 @@
             </nav>
         </header>
 
+        <script>
+            $.getJSON("data.json", function (data) {
+                document.getElementById("year").innerHTML = data[0].year;
+                document.getElementById("birds").innerHTML = data[0].birds_so_far;
+                document.getElementById("origin").innerHTML = data[0].origin;
+
+            })
+        </script>
         <!-- Main Title -->
         <main>
             <div class="title-container">
@@ -82,21 +90,21 @@
                         <li>
                             <img src="img/icon1.png">
                             <div>
-                                <h2>1322</h2>
+                                <h2 id="year">d</h2>
                                 <p>year</p>
                             </div>
                         </li>
                         <li>
                             <img src="img/icon2.png">
                             <div>
-                                <h2>29</h2>
+                                <h2 id="birds"></h2>
                                 <p>Bids so far.</p>
                             </div>
                         </li>
                         <li>
                             <img src="img/icon3.png">
                             <div>
-                                <h2>China</h2>
+                                <h2 id="origin"></h2>
                                 <p>Origin</p>
                             </div>
                         </li>
