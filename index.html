@@ -59,7 +59,6 @@
                 document.getElementById("year").innerHTML = data[0].year;
                 document.getElementById("birds").innerHTML = data[0].birds_so_far;
                 document.getElementById("origin").innerHTML = data[0].origin;
-
             })
         </script>
         <!-- Main Title -->
@@ -162,74 +161,45 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Recently Added Container-->
-        <section class="products">
-            <div class="product">
-                <div class="image-box">
-                    <img src="img/added1.png">
-                </div>
-                <div class="info">
-                    <div class="data">
-                        <h1>Data 1</h1>
-                        <p>Year: 1192 | Weapons</p> <br>
-                    </div>
+        </section>            
 
-                    <div class="price">
-                        <h2>$ 895.50</h2>
-                        <button>View Details</button>
-                    </div>
-
-                    <div class="bottom">
-                        <p>12 bids do far.</p>
-                        <p>Bidding closes in 12 Days</p>
-                    </div>
-                </div>
-            </div>
-            <div class="product">
-                <div class="image-box">
-                    <img src="img/added2.png">
-                </div>
-                <div class="info">
-                    <div class="data">
-                        <h1>Data 2</h1>
-                        <p>Year: 1078 | Weapons</p> <br>
-                    </div>
-
-                    <div class="price">
-                        <h2>$ 759</h2>
-                        <button>View Details</button>
-                    </div>
-
-                    <div class="bottom">
-                        <p>14 bids do far.</p>
-                        <p>Bidding closes in 12 Days</p>
-                    </div>
-                </div>
-            </div>
-            <div class="product">
-                <div class="image-box">
-                    <img src="img/added3.png">
-                </div>
-                <div class="info">
-                    <div class="data">
-                        <h1>Data 3</h1>
-                        <p>Year: 1256 | Weapons</p> <br>
-                    </div>
-
-                    <div class="price">
-                        <h2>$ 895.50</h2>
-                        <button>View Details</button>
-                    </div>
-
-                    <div class="bottom">
-                        <p>16 bids do far.</p>
-                        <p>Bidding closes in 12 Days</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <script>
+            $(document).ready(function () {
+                $.getJSON('recently-added.json', function (data) {
+                    var card = '';
+    
+                    $.each(data, function (key, value) {
+                        card +=
+                        '<section class="products">' +
+                            '<div class="product">' +
+                                '<div class="image-box">' +
+                                    '<img src="img/added' + value.id + '.png">' +
+                                '</div>' +
+                                '<div class="info">' +
+                                    '<div class="data">' +
+                                        '<h1>' + value.title + '</h1>' +
+                                        '<p>Year : ' + value.year + ' | Weapons</p> <br>' +
+                                    '</div>' +
+    
+                                    '<div class="price">' +
+                                        '<h2>$' + value.price + '</h2>' +
+                                        '<button onclick="getId(\'' + value.id + '\')">View Details</button>' +
+                                    '</div>' +
+    
+                                    '<div class="bottom">' +
+                                        '<p>12 bids do far.</p>' +
+                                        '<p>Bidding closes in 12 Days</p>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</section>'
+                    });
+                    $('#table').append(card);
+                });
+            });
+        </script>
+        <div id="table"></div>
+        
         <!-- Top Categories Header-->
         <section class="sub-titles">
             <div class="sub-title">
@@ -456,5 +426,10 @@
     </div>
 
 </body>
+<script>
+    function getId(id){
+        alert("Id : " + id);
+    }
+</script>
 
 </html>

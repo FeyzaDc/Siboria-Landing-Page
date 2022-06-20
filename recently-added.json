@@ -1,0 +1,20 @@
+[{
+        "id": 1,
+        "title": "Data 1",
+        "year": 1192,
+        "price": 895.50
+    },
+    {
+        "id": 2,
+        "title": "Data 2",
+        "year": 1078,
+        "price": 759        
+    },
+    {
+        "id": 3,
+        "title": "Data 3",
+        "year": 1256,
+        "price": 895.50        
+    }
+
+]
