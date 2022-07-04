@@ -1,2 +1,2 @@
 ### Siboria Landing Page
-Responsive design
+A responsive website designed for internship interview
