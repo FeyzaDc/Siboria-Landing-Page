@@ -1,2 +1,2 @@
 ### Siboria Landing Page
-- Responsive design
+Responsive design
